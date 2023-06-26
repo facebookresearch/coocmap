@@ -1,0 +1,36 @@
+program: test_accvdim.py
+name: enhu
+command:
+  # - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: random
+metric:
+  name: accuracy
+  goal: maximize
+parameters:
+  size1:
+    values: [20, 100]
+  lan1:
+    values: ["europarl-v7.hu-en.en.shuf"]
+  lan2:
+    values: ["europarl-v7.hu-en.hu.shuf"]
+  eval:
+    values: ['en-hu']
+  width:
+    values: [5]
+  dim:
+    distribution: log_uniform_values
+    min: 10
+    max: 5000
+  tokentype:
+    values: ['WordLevel']
+  supervision:
+    values: ['basic-init']
+  vocab_size:
+    values: [5000]
+  limit_alphabet:
+    values: [100]
+  min_frequency:
+    values: [1]

@@ -1,0 +1,39 @@
+program: test_accvsize.py
+name: enparl-huparl
+command:
+  # - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: random
+metric:
+  name: accuracy
+  goal: maximize
+parameters:
+  size1:
+    distribution: log_uniform_values
+    min: 1
+    max: 100
+  # size2:
+  #   value: 100
+  # skip2:
+  #   value: 100
+  lan1:
+    # values: ["en-wiki", "en-wac", "es-wac", "de-wac", "zh-wiki"]
+    values: ["europarl-v7.hu-en.en.shuf"]
+  lan2:
+    values: ["europarl-v7.hu-en.hu.shuf"]
+  eval:
+    values: ['en-hu']
+  width:
+    values: [5]
+  dim:
+    values: [300]
+  tokentype:
+    values: ['WordLevel']
+  vocab_size:
+    values: [5000]
+  limit_alphabet:
+    values: [100]
+  min_frequency:
+    values: [1]

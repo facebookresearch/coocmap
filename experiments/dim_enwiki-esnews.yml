@@ -1,0 +1,38 @@
+program: test_accvdim.py
+name: enes
+command:
+  # - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: random
+metric:
+  name: accuracy
+  goal: maximize
+parameters:
+  size1:
+    values: [300]
+  lan1:
+    values: ["enwikishuf"]
+  lan2:
+    values: ["news.2019.es.shuffled.deduped"]
+  eval:
+    values: ['en-es']
+  width:
+    values: [5]
+  dim:
+    distribution: log_uniform_values
+    min: 10
+    max: 5000
+  tokentype:
+    values: ['WordLevel']
+  supervision:
+    values: ['basic-init']
+  vectorize:
+    values: ['fasttext']
+  vocab_size:
+    values: [5000]
+  limit_alphabet:
+    values: [100]
+  min_frequency:
+    values: [1]

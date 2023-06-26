@@ -1,0 +1,39 @@
+program: test_accvsize.py
+name: enzh
+command:
+  # - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: random
+metric:
+  name: accuracy
+  goal: maximize
+parameters:
+  size1:
+    distribution: log_uniform_values
+    min: 5
+    max: 1400
+  # size2:
+  #   value: 100
+  # skip2:
+  #   value: 100
+  lan1:
+    # values: ["en-wiki", "en-wac", "es-wac", "de-wac", "zh-wiki"]
+    values: ["enwikishuf"]
+  lan2:
+    values: ["wikidumps/zhwikishuf.jieba.nonlatin.txt"]
+  eval:
+    values: ['en-zhsimp']
+  width:
+    values: [5]
+  dim:
+    values: [300]
+  tokentype:
+    values: ['WordLevel']
+  vocab_size:
+    values: [5000]
+  limit_alphabet:
+    values: [None]
+  min_frequency:
+    values: [1]

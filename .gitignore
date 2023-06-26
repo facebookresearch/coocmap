@@ -1,0 +1,8 @@
+.DS_Store
+.vscode
+__pycache__
+**/wandb
+fast/build/*
+fast/*.html
+fast/*.so
+fast/*.c

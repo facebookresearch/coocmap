@@ -1,0 +1,39 @@
+program: test_accvsize.py
+name: enes
+command:
+  # - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: random
+metric:
+  name: accuracy
+  goal: maximize
+parameters:
+  size1:
+    distribution: log_uniform_values
+    min: 10
+    max: 1000
+  # size2:
+  #   value: 100
+  # skip2:
+  #   value: 100
+  lan1:
+    # values: ["en-wiki", "en-wac", "es-wac", "de-wac", "zh-wiki"]
+    values: ["europarl-v7.es-en.en.shuf"]
+  lan2:
+    values: ["eswikishuf"]
+  eval:
+    values: ['en-es']
+  width:
+    values: [5]
+  dim:
+    values: [100]
+  tokentype:
+    values: ['WordLevel']
+  vocab_size:
+    values: [5000]
+  limit_alphabet:
+    values: [100]
+  min_frequency:
+    values: [1]
